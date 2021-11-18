@@ -13,23 +13,5 @@
     </ul>
   </div>
 
-  <div *ngIf="selectedHero" >
-    <h2>{{ selectedHero.name | uppercase }} DETAILS!</h2>
-    <div><span>id: </span>{{ selectedHero.id }}</div>
-    <div>
-      <label for="hero-name">Hero name: </label>
-      <input type="text"
-       name="name" 
-       id="hero-name" 
-       [(ngModel)]="selectedHero.name" 
-       placeholder="name">
-    </div>
-  </div>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
-
-<!-- <div><span>id: </span>{{ hero.id }}</div>
-<div>
-  <label for="name">Name: </label>
-  <input id="name" type="text" [(ngModel)]="hero.name" placeholder="name">
-</div> -->
