@@ -6,26 +6,27 @@
     <ul class="heroes">
       <li class="heroes_list"
        *ngFor="let hero of heroes" 
-       [class.selected]="hero === selectedHero"
+       [class.selected]="( hero | json ) === ( selectedHero | json )" 
        (click)="onSelect(hero)">
         <span class="badge">{{ hero.id }}</span> {{ hero.name }}
       </li>
     </ul>
   </div>
-</div>
 
-<div *ngIf="selectedHero" >
-  <h2>{{ selectedHero.name | uppercase }} DETAILS!</h2>
-  <div><span>id: </span>{{ selectedHero.id }}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input type="text"
-     name="name" 
-     id="hero-name" 
-     [(ngModel)]="selectedHero.name" 
-     placeholder="name">
+  <div *ngIf="selectedHero" >
+    <h2>{{ selectedHero.name | uppercase }} DETAILS!</h2>
+    <div><span>id: </span>{{ selectedHero.id }}</div>
+    <div>
+      <label for="hero-name">Hero name: </label>
+      <input type="text"
+       name="name" 
+       id="hero-name" 
+       [(ngModel)]="selectedHero.name" 
+       placeholder="name">
+    </div>
   </div>
 </div>
+
 
 <!-- <div><span>id: </span>{{ hero.id }}</div>
 <div>
